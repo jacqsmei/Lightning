@@ -1,9 +1,13 @@
+int startX = 250;
+int startY = 0;
+int endX = 250;
+int endY = 0;
+
 void setup()
 {
   size(500, 450);
   background(150);
   strokeWeight(5);
-  noLoop();
 }
 void draw()
 {
@@ -28,22 +32,22 @@ void draw()
 	ellipse(265, 0, 60, 60);
 	ellipse(360, 0, 80, 75);
 	ellipse(475, 0, 185, 125);
+
+  	while(endY<450) {
+  		stroke(#f0f573);
+		endX = startX + (int) (9 * Math.random());
+		endY = startY + (int) (18 * Math.random()-9);
+		line(startX, startY, endX, endY);
+		startX = endX;
+		startY = endY; 
+	}
 }
 
 void mousePressed()
 {
-	redraw();
-	stroke(#f0f573);
-	int startX = (int) (500 * Math.random());
-	int startY = 0;
-	int endX = startX + (int) (9 * Math.random());
-	int endY = startY + (int) (18 * Math.random())+9;
-	while (endY<450) {
-		line(startX, startY, endX, endY);
-		startX = endX;
-		startY = endY;
-		endX =  startX + (int) (9 * Math.random());
-		endY = startY + (int) (18 * Math.random())+9;
-	}
+	 startX = 250;
+	 startY = 0;
+	 endX = 250;
+	 endY = 0;
 }
 
